@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AR Business Card</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+    #arjs-video {
+      width: 100%;
+      max-width: 600px;
+      margin: auto;
+    }
+  </style>
+</head>
+<body>
+  <h1>AR Business Card</h1>
+  <div id="arjs-video"></div>
+
+  <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/ar.js/aframe/build/aframe-ar.js"></script>
+  <script>
+    AFRAME.registerComponent('business-card', {
+      init: function () {
+        const businessCard = document.createElement('a-entity');
+        businessCard.setAttribute('geometry', {
+          primitive: 'plane',
+          width: 1.5,
+          height: 1
+        });
+        businessCard.setAttribute('material', {
+          src: 'https://amrithnoni.com/cdn/shop/files/WhatsAppImage2024-05-18at1.26.49PM.jpg?v=1716019409',  // Replace with your business card image URL
+          transparent: true
+        });
+        businessCard.setAttribute('position', '0 0 -2');  // Adjust position as needed
+        this.el.appendChild(businessCard);
+      }
+    });
+  </script>
+</body>
+</html>
